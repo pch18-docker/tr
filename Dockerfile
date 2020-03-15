@@ -6,7 +6,7 @@ COPY settings.json /root/.config/transmission-daemon/settings.json
 WORKDIR /
 
 RUN apk update \
-    && apk add git cmake make g++ curl-dev libevent-dev \
+    && apk add git cmake make g++ curl-dev libevent-dev curl libevent\
     && git clone https://github.com/pch18-fork/transmission.git \
     && cd ./transmission \
     && git submodule update --init \
@@ -17,7 +17,7 @@ RUN apk update \
     && cmake .. \
     && make \
     && make install \
-    && apk del curl-dev libevent-dev \
+    && apk del git cmake make g++ curl-dev libevent-dev \
     && rm -rf /transmission
     
 EXPOSE 9091 51413/tcp 51413/udp
