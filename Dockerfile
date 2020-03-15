@@ -17,7 +17,7 @@ RUN apk update \
     && cmake .. \
     && make \
     && make install \
-    && apk del git cmake make g++ curl-dev libevent-dev \
+    && apk del curl-dev libevent-dev \
     && rm -rf /transmission
     
 EXPOSE 9091 51413/tcp 51413/udp
