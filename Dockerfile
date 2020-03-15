@@ -16,8 +16,10 @@ RUN apk update \
     && cd ./build \
     && cmake .. \
     && make \
-    && make install
-
+    && make install \
+    && apk del git cmake make g++ curl-dev libevent-dev \
+    && rm -rf /transmission
+    
 EXPOSE 9091 51413/tcp 51413/udp
 
 CMD  ["-f","-u","admin","-v","123456"]
