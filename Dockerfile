@@ -24,6 +24,6 @@ EXPOSE 9091 51413/tcp 51413/udp
 
 CMD  ["-f","-u","admin","-v","123456"]
 
-ENTRYPOINT ["/usr/bin/transmission-daemon"]
+ENTRYPOINT ["/usr/local/bin/transmission-daemon"]
 
 VOLUME /root/.config/
